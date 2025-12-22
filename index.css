@@ -1,0 +1,410 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+
+@layer base {
+  :root {
+    --background: 222 47% 6%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 8%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 8%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 271 76% 53%;
+    --primary-foreground: 210 40% 98%;
+    --primary-glow: 271 76% 65%;
+
+    --secondary: 180 100% 50%;
+    --secondary-foreground: 222 47% 6%;
+
+    --muted: 217 32% 17%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 271 76% 53%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 271 30% 25%;
+    --input: 217 32% 17%;
+    --ring: 271 76% 53%;
+
+    --radius: 1rem;
+
+    /* Neon Colors */
+    --neon-purple: 271 76% 53%;
+    --neon-cyan: 180 100% 50%;
+    --neon-pink: 330 100% 60%;
+
+    /* Gradients */
+    --gradient-neon: linear-gradient(135deg, hsl(var(--neon-purple)), hsl(var(--neon-cyan)));
+    --gradient-glow: linear-gradient(135deg, hsl(var(--neon-purple) / 0.3), hsl(var(--neon-cyan) / 0.3));
+    --gradient-card: linear-gradient(135deg, hsl(var(--card)), hsl(222 47% 10%));
+
+    /* Shadows */
+    --shadow-neon: 0 0 20px hsl(var(--neon-purple) / 0.5), 0 0 40px hsl(var(--neon-cyan) / 0.3);
+    --shadow-neon-intense: 0 0 30px hsl(var(--neon-purple) / 0.6), 0 0 60px hsl(var(--neon-cyan) / 0.4), 0 0 100px hsl(var(--neon-purple) / 0.2);
+    --shadow-card: 0 4px 24px hsl(var(--neon-purple) / 0.15);
+    --shadow-card-hover: 0 8px 40px hsl(var(--neon-purple) / 0.3), 0 0 60px hsl(var(--neon-cyan) / 0.2);
+
+    --sidebar-background: 222 47% 6%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 271 76% 53%;
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-accent: 217 32% 17%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 271 30% 25%;
+    --sidebar-ring: 271 76% 53%;
+
+    /* Font families */
+    --font-display: 'Orbitron', sans-serif;
+    --font-body: 'Cairo', sans-serif;
+  }
+
+  /* Light Theme */
+  .light {
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 271 76% 53%;
+    --primary-foreground: 210 40% 98%;
+    --primary-glow: 271 76% 65%;
+
+    --secondary: 180 100% 35%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 20% 45%;
+
+    --accent: 271 76% 53%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214 32% 85%;
+    --input: 214 32% 91%;
+    --ring: 271 76% 53%;
+
+    /* Light mode neon (softer) */
+    --neon-purple: 271 76% 53%;
+    --neon-cyan: 180 100% 35%;
+    --neon-pink: 330 100% 50%;
+
+    /* Light mode gradients */
+    --gradient-neon: linear-gradient(135deg, hsl(var(--neon-purple)), hsl(var(--neon-cyan)));
+    --gradient-glow: linear-gradient(135deg, hsl(var(--neon-purple) / 0.15), hsl(var(--neon-cyan) / 0.15));
+    --gradient-card: linear-gradient(135deg, hsl(var(--card)), hsl(210 40% 96%));
+
+    /* Light mode shadows */
+    --shadow-neon: 0 4px 20px hsl(var(--neon-purple) / 0.2), 0 2px 10px hsl(var(--neon-cyan) / 0.1);
+    --shadow-neon-intense: 0 8px 30px hsl(var(--neon-purple) / 0.3), 0 4px 15px hsl(var(--neon-cyan) / 0.2);
+    --shadow-card: 0 4px 20px hsl(0 0% 0% / 0.08);
+    --shadow-card-hover: 0 8px 30px hsl(var(--neon-purple) / 0.15), 0 4px 15px hsl(var(--neon-cyan) / 0.1);
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 222 47% 11%;
+    --sidebar-primary: 271 76% 53%;
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-accent: 210 40% 96%;
+    --sidebar-accent-foreground: 222 47% 11%;
+    --sidebar-border: 214 32% 85%;
+    --sidebar-ring: 271 76% 53%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+
+  [dir="rtl"] body {
+    font-family: var(--font-body);
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-card/80 backdrop-blur-xl border border-border/50;
+  }
+
+  .glass-hover {
+    @apply hover:bg-card/90 hover:border-primary/30 transition-all duration-300;
+  }
+
+  .neon-text {
+    text-shadow: 0 0 10px hsl(var(--neon-purple)), 0 0 20px hsl(var(--neon-cyan) / 0.5);
+  }
+
+  .neon-border {
+    box-shadow: inset 0 0 20px hsl(var(--neon-purple) / 0.1), 0 0 20px hsl(var(--neon-purple) / 0.3);
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-neon);
+  }
+
+  /* Brand Name Gradient with Glow */
+  .brand-gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(var(--neon-cyan)), hsl(var(--neon-purple)));
+    text-shadow: 0 0 20px hsl(var(--neon-cyan) / 0.4), 0 0 40px hsl(var(--neon-purple) / 0.3);
+    transition: all 0.3s ease;
+  }
+
+  .brand-gradient-text:hover {
+    text-shadow: 0 0 30px hsl(var(--neon-cyan) / 0.6), 0 0 60px hsl(var(--neon-purple) / 0.5);
+  }
+
+  .btn-neon {
+    @apply relative overflow-hidden;
+    background: var(--gradient-neon);
+    box-shadow: var(--shadow-neon);
+  }
+
+  .btn-neon:hover {
+    box-shadow: var(--shadow-neon-intense);
+  }
+
+  /* Button hover pulse glow effect */
+  .btn-hover-pulse {
+    @apply relative transition-all duration-300;
+  }
+
+  .btn-hover-pulse::before {
+    content: '';
+    @apply absolute inset-0 rounded-xl opacity-0 transition-opacity duration-300;
+    background: var(--gradient-neon);
+    filter: blur(12px);
+    z-index: -1;
+  }
+
+  .btn-hover-pulse:hover::before {
+    @apply opacity-60;
+    animation: pulse-glow 1.5s ease-in-out infinite;
+  }
+
+  .card-neon {
+    @apply glass rounded-2xl;
+    box-shadow: var(--shadow-card);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .card-neon:hover {
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  /* Premium Glassmorphism Header */
+  .glass-header {
+    @apply backdrop-blur-2xl;
+    background: linear-gradient(
+      135deg,
+      hsl(var(--background) / 0.75),
+      hsl(var(--card) / 0.65)
+    );
+    border-bottom: 1px solid hsl(var(--border) / 0.3);
+    box-shadow: 
+      0 4px 30px hsl(var(--background) / 0.4),
+      inset 0 1px 0 hsl(var(--foreground) / 0.05);
+  }
+
+  .glass-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      hsl(var(--neon-cyan) / 0.5) 25%,
+      hsl(var(--neon-purple) / 0.7) 50%,
+      hsl(var(--neon-cyan) / 0.5) 75%,
+      transparent 100%
+    );
+    animation: glow-line 3s ease-in-out infinite;
+  }
+
+  /* Pill Search Input */
+  .search-pill {
+    @apply rounded-full transition-all duration-300;
+    background: hsl(var(--card) / 0.5);
+    backdrop-filter: blur(12px);
+    border: 1px solid hsl(var(--border) / 0.4);
+  }
+
+  .search-pill:focus-within {
+    border-color: hsl(var(--neon-cyan) / 0.6);
+    box-shadow: 
+      0 0 0 3px hsl(var(--neon-cyan) / 0.1),
+      0 0 20px hsl(var(--neon-cyan) / 0.2),
+      inset 0 0 20px hsl(var(--neon-cyan) / 0.05);
+    transform: scale(1.02);
+  }
+
+  /* Glassmorphism for header (legacy) */
+  .glass-frosted {
+    @apply bg-card/60 backdrop-blur-2xl border border-border/30;
+    box-shadow: 0 8px 32px hsl(var(--background) / 0.3);
+  }
+
+  /* Mobile Bottom Navigation Glass */
+  .glass-bottom-nav {
+    @apply backdrop-blur-2xl;
+    background: linear-gradient(
+      180deg,
+      hsl(var(--background) / 0.85),
+      hsl(var(--card) / 0.9)
+    );
+    border-top: 1px solid hsl(var(--border) / 0.3);
+    box-shadow: 
+      0 -4px 30px hsl(var(--background) / 0.4),
+      inset 0 1px 0 hsl(var(--foreground) / 0.05);
+  }
+
+  .glass-bottom-nav::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      hsl(var(--neon-cyan) / 0.5) 25%,
+      hsl(var(--neon-purple) / 0.7) 50%,
+      hsl(var(--neon-cyan) / 0.5) 75%,
+      transparent 100%
+    );
+    animation: glow-line 3s ease-in-out infinite;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  .animate-shimmer {
+    animation: shimmer 2s linear infinite;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Safe area for iOS devices */
+  .safe-area-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px hsl(var(--neon-purple) / 0.5), 0 0 40px hsl(var(--neon-cyan) / 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px hsl(var(--neon-purple) / 0.7), 0 0 80px hsl(var(--neon-cyan) / 0.5);
+  }
+}
+
+@keyframes price-glow {
+  0%, 100% {
+    text-shadow: 0 0 10px hsl(var(--neon-purple) / 0.5), 0 0 20px hsl(var(--neon-cyan) / 0.3);
+  }
+  50% {
+    text-shadow: 0 0 20px hsl(var(--neon-purple) / 0.7), 0 0 40px hsl(var(--neon-cyan) / 0.5);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Shimmer effect class for skeletons */
+.shimmer-effect {
+  background: linear-gradient(
+    90deg,
+    hsl(var(--muted) / 0.3) 25%,
+    hsl(var(--muted) / 0.5) 50%,
+    hsl(var(--muted) / 0.3) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes glow-line {
+  0%, 100% {
+    opacity: 0.5;
+    background-position: -200% 0;
+  }
+  50% {
+    opacity: 1;
+    background-position: 200% 0;
+  }
+}
+
+@keyframes icon-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
